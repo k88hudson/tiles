@@ -13,7 +13,7 @@
     "build:js": "webpack",
     "watch:js": "npm run build:js -- --watch",
     "build:css": "npm run watch:css -- --no-watch",
-    "watch:css": "autoless --source-map src www",
+    "watch:css": "autoless --autoprefix --source-map src www",
     "server": "live-server www --port=2001"
   },
   "author": "k88hudson",
