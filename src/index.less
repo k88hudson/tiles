@@ -1,0 +1,141 @@
+@lightGrey: #F9F9F9;
+
+@tileBoxShadow: 0px 1px 3px #C1C1C1;
+@tileWidth: 290px;
+@tileHeight: 180px;
+@tileGutter: 20px;
+@tileTitleHeight: 30px;
+
+@searchHeight: 36px;
+
+@1across: (@tileWidth + @tileGutter * 2);
+@2across: (@tileWidth * 2 + @tileGutter * 3);
+@3across: (@tileWidth * 3 + @tileGutter * 4);
+@4across: (@tileWidth * 4 + @tileGutter * 5);
+
+@totalTileHeight: (@tileHeight + @tileTitleHeight + @tileGutter/2 + @tileGutter);
+@1down: (@searchHeight + @tileGutter * 3 + @tileHeight);
+@2down: (@searchHeight + @tileGutter * 3 + @tileHeight * 2);
+@3down: (@searchHeight + @tileGutter * 3 + @tileHeight * 4);
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background: @lightGrey;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  font-size: inherit;
+  img {
+    display: block;
+  }
+}
+
+input {
+  font-size: inherit;
+}
+
+@import './components/tile/tile';
+@import './components/search/search';
+
+.container {
+  //margin: 0 auto;
+  width: @1across;
+  padding: 20px;
+
+  .tile {
+    display: none;
+  }
+
+  .tile:first-child {
+    display: block;
+  }
+
+  @media (min-height: @2down) {
+    .tile:nth-child(2) {
+      display: block;
+    }
+  }
+  @media (min-height: @3down) {
+    .tile:nth-child(3) {
+      display: block;
+    }
+  }
+
+  @media (min-width: @2across) {
+    width: @2across;
+    .tile:nth-child(2) {
+      display: block;
+    }
+    @media (min-height: @2down) {
+      .tile:nth-child(3),
+      .tile:nth-child(4) {
+        display: block;
+      }
+    }
+    @media (min-height: @3down) {
+      .tile:nth-child(5),
+      .tile:nth-child(6) {
+        display: block;
+      }
+    }
+  }
+  @media (min-width: @3across) {
+    width: @3across;
+    .tile:nth-child(3) {
+      display: block;
+    }
+    @media (min-height: @2down) {
+      .tile:nth-child(4),
+      .tile:nth-child(5),
+      .tile:nth-child(6) {
+        display: block;
+      }
+    }
+    @media (min-height: @3down) {
+      .tile:nth-child(7),
+      .tile:nth-child(8),
+      .tile:nth-child(9) {
+        display: block;
+      }
+    }
+  }
+  @media (min-width: @4across) {
+    width: @4across;
+    .tile:nth-child(4) {
+      display: block;
+    }
+    @media (min-height: @2down) {
+      .tile:nth-child(5),
+      .tile:nth-child(6),
+      .tile:nth-child(7),
+      .tile:nth-child(8) {
+        display: block;
+      }
+    }
+    @media (min-height: @3down) {
+      .tile:nth-child(9),
+      .tile:nth-child(10),
+      .tile:nth-child(11),
+      .tile:nth-child(12) {
+        display: block;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,81 @@
+.tile-container {
+  margin-right: -(2 * @tileGutter);
+}
+
+.tile {
+  font-size: 14px;
+  width: @tileWidth;
+  float: left;
+  margin-right: @tileGutter;
+  margin-bottom: @tileGutter;
+  position: relative;
+  &:hover {
+    .btn {
+      opacity: 1;
+    }
+  }
+
+  &.sortable-ghost {
+    opacity: 0.5;
+  }
+
+  &.pinned {
+    .tile-thumbnail {
+      border: 1px solid #999;
+    }
+  }
+
+  .tile-thumbnail {
+    width: 100%;
+    height: @tileHeight;
+    border-radius: 8px;
+    background: white;
+    box-shadow: @tileBoxShadow;
+  }
+
+  .tile-title {
+    width: 100%;
+    height: @tileTitleHeight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-family: Lucida Grande, sans-serif;
+    padding-top: (@tileGutter / 2);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .btn {
+    background: white;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid #E6EAFF;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .close-btn {
+    top: 5px;
+    right: 5px;
+  }
+
+  .pin-btn {
+    top: 5px;
+    left: 5px;
+    img {
+      width: 12px;
+    }
+  }
+
+  .pinned-icon {
+    width: 12px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+  }
+
+}
